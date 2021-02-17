@@ -153,11 +153,26 @@ cons=({'type':'eq','fun':check_sum})
 
 bounds = ((0,1))
 
-for asset in numAssets:
-	bounds += (0,1)
-
-	if numAssets == 1:
-		bounds = ((0,1))										
+if numAssets == 1:
+	bounds = ((0,1))
+elif numAssets == 2:
+	bounds = ((0,1),(0,1))
+elif numAssets == 3:
+	bounds = ((0,1),(0,1),(0,1))
+elif numAssets == 4:
+	bounds = ((0,1),(0,1),(0,1),(0,1))
+elif numAssets == 5:
+	bounds = ((0,1),(0,1),(0,1),(0,1),(0,1))
+elif numAssets == 6:
+	bounds = ((0,1),(0,1),(0,1),(0,1),(0,1),(0,1))			
+elif numAssets == 7:
+	bounds = ((0,1),(0,1),(0,1),(0,1),(0,1),(0,1),(0,1))
+elif numAssets == 8:
+	bounds = ((0,1),(0,1),(0,1),(0,1),(0,1),(0,1),(0,1),(0,1))	
+elif numAssets == 9:
+	bounds = ((0,1),(0,1),(0,1),(0,1),(0,1),(0,1),(0,1),(0,1),(0,1))
+elif numAssets == 10:
+	bounds = ((0,1),(0,1),(0,1),(0,1),(0,1),(0,1),(0,1),(0,1),(0,1),(0,1))										
 
 optimal_results=minimize(neg_sharpe,weights,method='SLSQP',bounds=bounds,constraints=cons)
 
